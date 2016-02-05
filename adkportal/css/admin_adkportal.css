@@ -1,0 +1,165 @@
+/**
+ * Adk Portal
+ * Version: 3.0
+ * Official support: http://www.smfpersonal.net
+ * Author: Adk Team
+ * Copyright: 2009 - 2014 © SMFPersonal
+ * Developers:
+ * 		Juarez, Lucas Javier
+ * 		Clavijo, Pablo
+ *
+ * version smf 2.0*
+ */
+
+.adk_padding_img
+{
+	padding-right: 4px;
+}
+.adk_100
+{
+	width: 100%;
+}
+.adk_70
+{
+	width: 70%;
+}
+.adk_50
+{
+	width: 50%;
+}
+.adk_35
+{
+	width: 35%;
+}
+.adk_30
+{
+	width: 30%;
+}
+.adk_25
+{
+	width: 25%;
+}
+.adk_15
+{
+	width: 15%;
+}
+.adk_10
+{
+	width: 10%;
+}
+.adk_padding_2
+{
+	padding: 2px;
+}
+.adk_get_news
+{
+	height: 24ex; 
+	overflow: auto; 
+	padding-right: 1ex;
+}
+.adk_get_news_2
+{
+	margin: 4px; 
+	font-size: 0.85em;
+}
+.adk_font_bold
+{
+	font-weight: bold;
+}
+.text_align_center
+{
+	text-align: center;
+}
+.h3_padding
+{
+	padding: 3px 0pt 0pt;
+}
+.adk_padding_5
+{
+	padding: 5px;
+}
+.adk_padding_8
+{
+	padding: 8px;
+}
+.adk_vertical_align
+{
+	vertical-align: middle;
+}
+
+/*2.2*/
+.size_40px{
+	width: 40px;
+}
+.size_100 {
+	width: 100%;
+}
+.size_90 {
+	width: 90%;
+}
+.size_80 {
+	width: 80%;
+}
+.size_70 {
+	width: 70%;
+}
+.size_60 {
+	width: 60%;
+	vertical-align: top;
+}
+.size_50 {
+	width: 50%;
+	vertical-align: top;
+}
+.size_40 {
+	width: 40%;
+	vertical-align: top;
+}
+.size_30 {
+	width: 30%;
+}
+.size_35 {
+	width: 35%;
+}
+.size_20 {
+	width: 20%;
+	vertical-align: top;
+}
+.size_10 {
+	width: 10%;
+	vertical-align: top;
+}
+.alingright {
+	text-align: right;
+}
+.alingleft {
+	text-align: left;
+}
+
+#addicons, #jsblock_center, #jsblock_left, #jsblock_right, #jsblock_top, #jsblock_bottom, #designA, #designB, #designC, #designD{
+	width:0px;
+	height:1px;
+	padding:0px;
+	overflow:hidden;
+}
+#addicon, #jsblock_centro, #jsblock_izq, #jsblock_der, #jsblock_arriba, #jsblock_abajo, #designAa, #designBb, #designCc, #designDd{
+	display:block;
+}
+
+#jsblock_left a, #jsblock_center a, #jsblock_right a, #jsblock_top a, #jsblock_bottom a{
+	text-decoration: none;
+}
+.blockDes
+{
+	background: url("../images/windowbg.png") repeat-x scroll left bottom #fff;
+	border: 1px solid #b2b2b2;
+}
+.blockAct
+{
+	background: url("../images/windowbg.png") repeat-x scroll left bottom #E7EAEF;
+	border: 1px solid #b2b2b2;
+}
+tr.catbg th.first_th {
+	padding: 6px;
+}
+

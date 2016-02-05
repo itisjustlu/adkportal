@@ -1,0 +1,84 @@
+/**
+ * Adk Portal
+ * Version: 3.0
+ * Official support: http://www.smfpersonal.net
+ * Author: Adk Team
+ * Copyright: 2009 - 2014 © SMFPersonal
+ * Developers:
+ * 		Juarez, Lucas Javier
+ * 		Clavijo, Pablo
+ *
+ * version smf 2.0*
+ */
+
+.m_100{
+	width: 100%;
+}
+
+.m_vertical_middle{
+	vertical-align: middle;
+}
+
+.m_message_icon{
+	background: none repeat scroll 0% 0% transparent; 
+	padding: 3px; 
+	text-align: center;
+}
+
+.m_message_icon img{
+	margin: 
+	0px; padding: 3px 0px;
+}
+
+.Adk_contact_send_message {
+	background: none repeat scroll 0 0 green;
+	border-color: black;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.4);
+}
+#form_contact .verification_control {
+	margin-top: 17px;
+	text-align: center;
+}
+.Adk_contact td div.ae_desc {
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-radius: 5px 0 5px 0;
+	box-shadow: 1px 2px 2px rgba(204, 204, 204, 0.8);
+	color: #555555;
+	display: inline-block;
+	float: left;
+	font-size: 13px;
+	left: 2px;
+	margin-top: -37px;
+	min-width: 70px;
+	padding: 10px;
+	position: relative;
+	top: 41px;
+	z-index: 1;
+}
+.Adk_contact td.ae_center textarea {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 4px solid #EEEEEE;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 1px 3px rgba(204, 204, 204, 0.95) inset;
+	float: left;
+	font-size: 13px;
+	height: 150px;
+	margin: 0;
+	overflow: auto;
+	padding: 45px 10px 10px;
+	width: 825px;
+}
+.contenedor_contact {
+	margin: 0 auto;
+	width: 890px;
+}
+#post_header a img {
+	vertical-align: middle !important;
+}
+#post_header img {
+	vertical-align: bottom !important;
+}
+

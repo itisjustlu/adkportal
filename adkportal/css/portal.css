@@ -1,0 +1,28 @@
+/**
+ * Adk Portal
+ * Version: 3.0
+ * Official support: http://www.smfpersonal.net
+ * Author: Adk Team
+ * Copyright: 2009 - 2014 © SMFPersonal
+ * Developers:
+ * 		Juarez, Lucas Javier
+ * 		Clavijo, Pablo
+ *
+ * version smf 2.0*
+ */
+
+.iconfieldset
+{
+	border: solid #CACDD3 1px;
+	padding: 1em;
+	margin: 0 0 0.3em 0;
+}
+input, button, select, textarea
+{
+	font: 95%/115% verdana, Helvetica, sans-serif;
+	color: #000000;
+	background: #fff;
+	border: 1px solid #7f9db9;
+	padding:4px 5px;
+}
+
