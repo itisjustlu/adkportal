@@ -16,7 +16,7 @@ $(document).ready(function(){
 	var inputMessage = $("#message_shoutbox");
 	var loading = $("#loading");
 	var messageList = $(".contente");
-	
+
 	function updateShoutbox(){
 		messageList.hide();
 		loading.fadeIn();
@@ -29,19 +29,21 @@ $(document).ready(function(){
 			}
 		});
 	}
+
 	function checkForm(){
-		if(inputUser.attr("value") && inputMessage.attr("value"))
+		if(inputUser.val() && inputMessage.val())
 			return true;
 		else
 			return false;
 	}
-	
+
 	updateShoutbox();
-	
+
 	$("#form").submit(function(){
+
 		if(checkForm()){
-			var nick = inputUser.attr("value");
-			var message = inputMessage.attr("value");
+			var nick = inputUser.val();
+			var message = inputMessage.val();
 			var id_user = inputMessage.attr("id_user");
 
 			$("#send").attr({ disabled:true, value:smf_shoutbox_text_sending });
@@ -53,11 +55,12 @@ $(document).ready(function(){
 					updateShoutbox();
 					$("#send").attr({ disabled:false, value:smf_shoutbox_shout_it });
 				}
-			 });
-			
-			document.getElementById("message_shoutbox").value = "";
+			});
+
+			$("#message_shoutbox").value = "";
 		}
 		else alert(smf_shoutbox_fill);
+
 		return false;
 	});
 });
@@ -66,7 +69,7 @@ function addSmiley(smiley)
 {
 	replaceText(smiley, document.getElementById("message_shoutbox"));
 }
-	
+
 function OpenShoutbox(id)
 {
 	if(document.getElementById(id).style.display == "none"){
@@ -85,11 +88,11 @@ function updateShout()
 {
 	var messageList = $(".contente");
 	var loading = $("#loading");
-	
+
 	messageList.hide();
 	loading.fadeIn();
 	$.ajax({
-			type: "POST", url: smf_scripturl, data: "action=shoutboxAjax&sa=update",
+		type: "POST", url: smf_scripturl, data: "action=shoutboxAjax&sa=update",
 		complete: function(data){
 			loading.fadeOut();
 			messageList.html(data.responseText);
