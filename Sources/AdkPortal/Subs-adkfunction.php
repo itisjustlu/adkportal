@@ -28,7 +28,7 @@ function getCurrentversion()
 function getYourversion()
 {
 	//Hey baby... What's our version?
-	$version = '3.1';
+	$version = '3.2';
 	
 	return $version;
 }
