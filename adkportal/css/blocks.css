@@ -1,0 +1,282 @@
+/**
+ * Adk Portal
+ * Version: 3.0
+ * Official support: http://www.smfpersonal.net
+ * Author: Adk Team
+ * Copyright: 2009 - 2014 © SMFPersonal
+ * Developers:
+ * 		Juarez, Lucas Javier
+ * 		Clavijo, Pablo
+ *
+ * version smf 2.0*
+ */
+
+.collapse2
+{
+	float: right !important;
+	padding-top: 7px;
+	padding-top: 0.5em;
+}
+.allpadding
+{
+	padding: 4px 10px;
+}
+.allpadding_simple
+{
+	overflow: auto;
+	padding: 0 0.5em;
+}
+
+.adk_avatar
+{
+	width: 50px;
+	height: 50px;
+}
+#form table td{
+	text-align: left;
+	font-size: 11px;
+}
+#form label{
+	font-weight: 700;
+}
+#form input{
+	border: 1px solid #d0ccc9;
+	background: #fff;
+	color: #5f95ef;
+	font-size: 11px;
+	font-weight: 700;
+}
+#form input.text{
+	font-weight: normal;
+	color: #565656;
+	border: 1px solid #9c9c9c;
+	padding: 2px;
+	margin-bottom: 5px;
+	text-align: left;
+}
+#form input.text.user{
+	width: 100px;
+}
+/******* /FORM *******/
+/******* MENU *******/
+#container3{
+}
+#container3 ul{
+	list-style: none;
+	list-style-position: outside;
+}
+#container3 ul.menu li{
+	
+	margin-bottom: -1px;
+}
+#container3 ul.menu li{
+	font-weight: 700;
+	display: block;
+	background: #fff;
+	border: 1px solid #d0ccc9;
+	border-width: 1px 1px 0 1px;
+	position: relative;
+	color: #5f95ef;
+	cursor: pointer;
+}
+.contente{
+	display: block;
+	border: 1px solid #d0ccc9;
+	text-align: left;
+	font-size: 11px;
+	overflow: auto;
+	max-height: 24em;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+.contente div {
+    padding-left: 3px;
+}
+.date{
+	font-weight: normal;
+	font-size: 8px;
+	color: #aeaeae;
+}
+#loading{
+	text-align: center;
+}
+
+/*2011*/
+.adk_pointer
+{
+	cursor: pointer;
+}
+.adk_float_r
+{
+	float:right;
+}
+.adk_float_l
+{
+	float: left;
+}
+.adk_100
+{
+	width: 100%;
+}
+.adk_padding_5_r
+{
+	padding-right: 5px;
+}
+.adk_padding_5_l
+{
+	padding-left: 5px;
+}
+.adk_vertical
+{
+	vertical-align: middle;
+}
+.adk_font
+{
+	font-size: 12px;
+}
+.adk_7
+{
+	height:7px;
+}
+.adk_min_height
+{
+	min-height: 1.2em;
+}
+.adk_little_round
+{
+	height: 28px !important;
+}
+.adk_padding_8
+{
+	padding: 8px;
+}
+.adk_padding_7
+{
+	padding: 7px;
+}
+.adk_padding_6
+{
+	padding: 6px;
+}
+.adk_padding_5
+{
+	padding: 5px;
+}
+.adk_style_none
+{
+	display: none;
+}
+.font_italic
+{
+	font-style: italic;
+}
+.font_bold
+{
+	font-weight: bold;
+}
+.font_under
+{
+	text-decoration: underline;
+}
+.font_strike
+{
+	text-decoration: line-through;
+}
+.shout_left
+{
+	text-align: left;
+}
+.shout_center
+{
+	text-align: center;
+}
+.shout_right
+{
+	text-align: right;
+}
+.adk_align_left
+{
+	text-align: left;
+}
+.adk_align_right
+{
+	text-align: right;
+}
+.text_align_center
+{
+	text-align: center;
+}
+.adk_no_avatar
+{
+	width: 50px;
+	height: 50px;
+}
+.adk_advanced_image
+{
+	width: 140px;
+}
+.adk_height_1
+{
+	height: 1px;
+}
+.adk_height_3
+{
+	height: 3px;
+}
+
+#adklcolapse {
+	margin-left: 10px;
+}
+#adkrcolapse {
+	margin-right: 10px;
+}
+.adk_colexp {
+	margin-top: -10px;
+	position: relative;
+}
+
+.colexp_l {
+	bottom: -75px;
+	left: -40px;
+	position: absolute;
+}
+
+.colexp_r {
+	bottom: -75px;
+	position: absolute;
+	right: -40px;
+}
+
+.shout_bar {
+	background: no-repeat scroll 0 -280px;
+	margin-bottom: 0;
+	height: 25px;
+	overflow: hidden;
+	padding-left: 9px;
+}
+div.shout_bar h3.shoutbg {
+	background: no-repeat scroll 100% -280px transparent;
+	font-size: 11px;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	color: #fff;
+}
+
+#adkportal_center code.bbc_code, #adkportal_center .codeheader {
+	margin: 0 auto;
+	max-width: 425px;
+}
+
+.carousel_buttons{
+	height: 24px;
+	width: 24px;
+}
+
+.resize_auto_new {
+	cursor: default !important;
+	height: auto !important;
+	width: auto !important;
+}
+

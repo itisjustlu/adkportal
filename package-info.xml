@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+  <name>Adk Portal</name>
+  <id>lucas-ruroken:adkportal</id>
+  <type>modification</type>
+  <version>3.1</version>
+
+	<install for="2.0 - 2.0.99, 2.1 Beta 2">
+		<readme parsebbc="true">files/readme.txt</readme>
+		<modification type="file">files/install_2.0.x.xml</modification>
+		<!-- Board Dir -->
+		<require-dir name="adkportal" destination="$boarddir" />
+		<require-dir name="Adk-downloads" destination="$boarddir" />
+		<require-file name="files/adk-license.txt" destination="$boarddir" />
+		<!-- Source Dir -->
+		<require-dir name="Sources" destination="$boarddir" />
+		<!-- Theme Dir -->
+		<require-dir name="Themes" destination="$boarddir" />
+		<code>install/db_install_adkportal.php</code>
+		<database>install/db_install_adkportal_optional.php</database>
+	</install>
+		
+	<uninstall for="2.0 - 2.0.99, 2.1 Beta 2">
+		<!-- Check our Readme and install ;) -->
+		<readme parsebbc="true">files/readme1.txt</readme>
+		<modification type="file" reverse="true">files/install_2.0.x.xml</modification>
+		<!-- Board Dir -->
+		<remove-dir name="$boarddir/adkportal" />
+		<remove-dir name="$boarddir/Adk-downloads" />
+		<remove-file name="$boarddir/adk-license.txt" />
+		<!-- Source Dir -->
+		<remove-dir name="$sourcedir/AdkPortal" />
+		<!-- Theme Dir -->
+		<remove-dir name="$themedir/AdkPortal" />
+		<!-- Language Dir -->
+		<remove-dir name="$themedir/languages/AdkPortal" />
+		<!-- Image Dir -->
+		<remove-file name="$imagesdir/admin/addcategory.png" />
+		<remove-file name="$imagesdir/admin/ads.png" />
+		<remove-file name="$imagesdir/admin/approve.png" />
+		<remove-file name="$imagesdir/admin/blocks.png" />
+		<remove-file name="$imagesdir/admin/createblock.png" />
+		<remove-file name="$imagesdir/admin/createnews.png" />
+		<remove-file name="$imagesdir/admin/editcategory.png" />
+		<remove-file name="$imagesdir/admin/htaccess.png" />
+		<remove-file name="$imagesdir/admin/icons.png" />
+		<remove-file name="$imagesdir/admin/images.png" />
+		<remove-file name="$imagesdir/admin/imagesadvanced.png" />
+		<remove-file name="$imagesdir/admin/intro.png" />
+		<remove-file name="$imagesdir/admin/label0.png" />
+		<remove-file name="$imagesdir/admin/label1.png" />
+		<remove-file name="$imagesdir/admin/label2.png" />
+		<remove-file name="$imagesdir/admin/label3.png" />
+		<remove-file name="$imagesdir/admin/news.png" />
+		<remove-file name="$imagesdir/admin/pages.png" />
+		<remove-file name="$imagesdir/admin/robot.png" />
+		<remove-file name="$imagesdir/admin/settings.png" />
+		<remove-file name="$imagesdir/admin/shoutbox.png" />
+		<remove-file name="$imagesdir/admin/upload.png" />
+		<redirect url="$scripturl?action=admin;area=packages" timeout="1000"></redirect>
+		<code>install/db_uninstall_adkportal.php</code>
+		<database>install/db_uninstall_adkportal_optional.php</database>
+	</uninstall>
+
+</package-info>

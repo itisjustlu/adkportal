@@ -1,0 +1,276 @@
+/**
+ * Adk Portal
+ * Version: 3.0
+ * Official support: http://www.smfpersonal.net
+ * Author: Adk Team
+ * Copyright: 2009 - 2014 © SMFPersonal
+ * Developers:
+ * 		Juarez, Lucas Javier
+ * 		Clavijo, Pablo
+ *
+ * version smf 2.0*
+ */
+
+.warning_box
+{
+	height: 50px;
+	background: url(../images/stop.png) no-repeat;
+	margin: 0 10px;
+	padding: 15px 0 0 75px;
+}
+
+.my_back
+{
+	background: url(../images/info_background.png) no-repeat;
+	float: right;
+	width: 36px;
+	height: 40px;
+}
+.adk_vertical
+{
+	vertical-align: middle;
+}
+.adk_50
+{
+	width: 50%;
+}
+.height_2
+{
+	height: 2px;
+}
+.adk_40
+{
+	width: 40%;
+}
+.adk_bold
+{
+	font-weight: bold;
+}
+.adk_10
+{
+	width: 10%;
+}
+.adk_100
+{
+	width: 100%;
+}
+.adk_align_left
+{
+	text-align: left;
+}
+.adk_align_center
+{
+	text-align: center;
+}
+.adk_float_right
+{
+	float: right;
+}
+.adk_float_left
+{
+	float: left;
+}
+.height_1
+{
+	height: 1px;
+}
+.eds_desc, .eds_autor, .eds_down, .eds_downs
+{
+	background: #FFFFFF;
+	border: 3px solid #99ABBF;
+	margin-top: -3px;
+	padding: 10px;
+	border-bottom: none;
+}
+.eds_content
+{
+	min-height: 200px;
+}
+.eds_files {
+	border-top: 1px dotted;
+}
+.eds_down_profile
+{
+	min-height: 100px;
+	font-family: verdana,sans-serif;
+	/*font-size: 0.9em;*/
+}
+.eds_down_profile
+{
+	border: 3px solid #99ABBF;
+	margin-top: -3px;
+	padding: 10px;
+}
+.eds_disable {
+	background: url("../images/stop.png") no-repeat scroll center top transparent;
+}
+.eds_disable_post {
+	height: 40px;
+	background: url("../images/stop.png") no-repeat scroll 0 0 transparent;
+	margin: 0;
+	padding: 23px 0 0 71px;
+}
+.eds_down
+{
+	min-height: 100px;
+	font-family: verdana,sans-serif;
+	/*font-size: 0.9em;*/
+}
+.eds_downs
+{
+	min-height: 100px;
+	font-family: verdana,sans-serif;
+}
+.eds_autor
+{
+	min-height: 150px;
+	font-family: verdana,sans-serif;
+	font-size: 0.8em;
+}
+.eds_autor img.avatar
+{
+	width: 65px;
+	height: 65px;
+}
+div.eds_cat_bar {
+	padding-left: 9px;
+	height: 29px;
+	overflow: hidden;
+	margin-bottom: -6px;
+	border-radius: 5px 5px 0 0;
+}
+
+h3.eds_catbg {
+	padding-right: 9px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	padding-top: 6px;
+	overflow: hidden;
+	height: 29px;
+}
+.eds_botbar
+{
+	border-radius: 0 0 5px 5px;
+	clear: both;
+	display: block;
+	padding: 0 20px;
+}
+.eds_botbar span
+{
+	display: block;
+	height: 10px;
+	padding: 0;
+}
+.eds_topbar
+{
+	border-radius: 5px 5px 0 0;
+	clear: both;
+	display: block;
+	margin-top: 2px;
+	padding: 0 20px;
+}
+.eds_topbar span
+{
+	color: #FFFFFF;
+	display: block;
+	font-weight: bold;
+	height: 20px;
+	padding: 5px 0 0;
+}
+.eds_author {
+	float: right;
+	padding-right: 75px;
+}
+.eds_attachments
+{
+	width: 98%;
+	overflow: auto;
+	clear: right;
+	padding: 1em 0 3px 0;
+	border-top: 1px solid #aaa;
+	line-height: 1.4em;
+	font-size: 0.85em;
+}
+.eds_desc .eds_attachments
+{
+	margin-left: 6px;
+}
+.eds_attachments
+{
+	min-height: 41px;
+	border: 3px solid #99ABBF;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px; 
+	background: #CEE0F4 url(../images/eds_attach.png) center left no-repeat;
+}
+.eds_attachments a
+{
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.eds_attachments a:hover
+{
+	color: #373737;
+	font-weight: bold;
+	text-decoration: none;
+}
+.eds_title_attachments
+{
+	color: #A66100;
+	font-size: 10px;
+	margin-top: 0px;
+	padding: 5px;
+	display: block;
+}
+.eds_attachments {
+	padding: 1em 0 2em;
+}
+.eds_attachments div {
+	padding: 0 0.5em;
+}
+.eds_list {
+	list-style: none outside none;
+	margin-left: -35px;
+}
+table.table_eds td {
+	border-bottom: 1px dotted #99ABBF;
+	border-right: 1px dotted #99ABBF;
+	padding: 3px;
+}
+.eds_link_profile:hover {
+	color: #ffdd99 !important;
+	text-decoration: none;
+}
+.eds_link_profile {
+	color: #FFFFFF !important;
+	text-decoration: none;
+}
+.eds_table {
+	border: 2px solid #99ABBF;
+}
+.eds_title_td td {
+	border-bottom: 1px dotted #99ABBF;
+	color: #99ABBF;
+	font-weight: bold;
+	text-align: center;
+}
+.eds_content_td td {
+	border-bottom: 1px dotted #99ABBF;
+}
+.eds_childreborder_td {
+	border-top: 1px dotted #99ABBF;
+}
+.eds_img_link {
+	text-decoration: none;
+}
+.eds_img_link:hover {
+	text-decoration: none;
+}
+.adk_5
+{
+	width: 5%;
+}
+
