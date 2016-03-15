@@ -2,7 +2,7 @@
 <!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
   <name>Adk Portal</name>
-  <id>lucas-ruroken:adkportal</id>
+  <id>lucasruroken:adkportal</id>
   <type>modification</type>
   <version>3.1</version>
 
