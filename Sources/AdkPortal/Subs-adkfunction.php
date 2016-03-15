@@ -4,7 +4,7 @@
  * Version: 3.1
  * Official support: http://www.smfpersonal.net
  * Author: Adk Team
- * Copyright: 2009 - 2016 © SMFPersonal
+ * Copyright: 2009 - 2016 ï¿½ SMFPersonal
  * Developers:
  * 		Juarez, Lucas Javier
  * 		Clavijo, Pablo
@@ -17,12 +17,12 @@ if (!defined('SMF'))
 //Ultimas actualizaciones
 function getAdkNews()
 {
-	echo getFile("http://www.smfpersonal.net/news.txt");
+	echo getFile("http://www.softpersonal.com/news/adkportal/news.txt");
 }
 
 function getCurrentversion()
 {
-	return getFile("http://smfpersonal.net/news/adk-portal-version.txt");
+	return getFile("http://www.softpersonal.com/news/adkportal/current-version.txt");
 }
 
 function getYourversion()
@@ -108,10 +108,10 @@ function bufferAdkCopyright()
 	$version = empty($adkportal['adk_hide_version']) ? $to_replace_in_version : '';
 	
 	//The copyright
-	$adkportal['copy'] = '<br /><a href="http://www.smfpersonal.net" target="_blank">Adk Portal'.$version.' &copy; 2009-2013</a>';
+	$adkportal['copy'] = '<br /><a href="http://www.softpersonal.com" target="_blank">Adk Portal'.$version.' &copy; 2009-2016</a>';
 	
 	//Creating a simple variable
-	$adkportal['variables_important'] = ' | <a href="{$scripturl}?action=adk_credits">Adk Portal {$version}</a> &copy; <a href="http://www.smfpersonal.net" target="_blank">SMF personal</a>';
+	$adkportal['variables_important'] = ' | <a href="{$scripturl}?action=adk_credits">Adk Portal {$version}</a> &copy; <a href="http://www.softpersonal.com" target="_blank">Soft personal</a>';
 	
 	//Reeplace version?
 	if(empty($adkportal['adk_hide_version']))
@@ -809,12 +809,12 @@ function SimpleReplace($variable)
 {
 	$split = '-';
 
-	$other = array('á','é','í','ó','ú','Á','É','Í','Ó','Ú','Ñ','ñ',);
+	$other = array('ï¿½','ï¿½','ï¿½','ï¿½','ï¿½','ï¿½','ï¿½','ï¿½','ï¿½','ï¿½','ï¿½','ï¿½',);
 	$other2 = array('a','e','i','o','u','A','E','I','O','U','N','n',);
 	
 	$var = str_replace($other,$other2,$variable);
 	
-	$again = array('"','!','ª','$','%','&','/','(',')','?','¿','Ç','-','.',';',',','´','+','`',"\\",'#',);
+	$again = array('"','!','ï¿½','$','%','&','/','(',')','?','ï¿½','ï¿½','-','.',';',',','ï¿½','+','`',"\\",'#',);
 	$var = str_replace($again,"",$var);
 	
 	$o = array('   ','  ',);
@@ -2032,9 +2032,9 @@ function Adk_portal_change_buffer(&$buffer)
 	call_integration_hook('modules_copyright', array(&$copyrights));
 
 	if(($current_load[0] == 'action') && (!empty($copyrights[$current_load[1]])))
-		$buffer = str_replace($forum_copyright, $forum_copyright.'<br /><a href="http://www.smfpersonal.net" target="_blank">'.$copyrights[$current_load[1]].'</a>', $buffer);
+		$buffer = str_replace($forum_copyright, $forum_copyright.'<br /><a href="http://www.softpersonal.com" target="_blank">'.$copyrights[$current_load[1]].'</a>', $buffer);
 	elseif($current_load[0] == 'page')
-		$buffer = str_replace($forum_copyright, $forum_copyright.'<br /><a href="http://www.smfpersonal.net" target="_blank">'.$copyrights['pages'].'</a>', $buffer);
+		$buffer = str_replace($forum_copyright, $forum_copyright.'<br /><a href="http://www.softpersonal.com" target="_blank">'.$copyrights['pages'].'</a>', $buffer);
 	
 	//Seo pages
 	if(!empty($adkportal['enable_pages_seo']))

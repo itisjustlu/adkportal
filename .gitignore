@@ -1,2 +1,5 @@
 #Dont upload zip file
 adkportal.zip
+
+#Workspace
+.idea/**/*

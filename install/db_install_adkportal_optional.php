@@ -903,7 +903,6 @@ $columns[] = array(
 	'column_info' => array(
 		'name' => 'adk_pages_notifications',
 		'type' => 'text',
-		'default' => '',
 		'auto' => false,
 		'unsigned' => false,
 	),
