@@ -62,5 +62,4 @@
 		<code>install/db_uninstall_adkportal.php</code>
 		<database>install/db_uninstall_adkportal_optional.php</database>
 	</uninstall>
-
 </package-info>

@@ -1,0 +1,531 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>lucas-ruroken:adkportal</id>
+	<version>2.1.1</version>
+	<file name="$sourcedir/Subs-Menu.php">
+		<operation>
+			<search position="replace"><![CDATA[
+	/* Note menuData is array of form:
+]]></search>
+			<add><![CDATA[
+	//Well... Theme developers don't use custom images for admin... I never see that... 
+	//So I prefer to load the default images, and Adk portal will not be affected :D
+	//Lucas-ruroken Modifications
+	$context['menu_image_path'] = $settings['default_images_url'].'/admin';
+	
+	/* Note menuData is array of form:
+]]></add>
+		</operation>
+	</file>
+	<file name="$sourcedir/Subs.php">
+		<operation>
+			<search position="replace"><![CDATA[$context['allow_admin'] = allowedTo(array(]]></search>
+			<add><![CDATA[$context['allow_admin'] = allowedTo(array('adk_portal',]]></add>
+		</operation>
+		
+		<operation>
+			<search position="replace"><![CDATA[
+	if (isset($context['menu_buttons'][$context['current_action']]))
+]]></search>
+			<add><![CDATA[
+	global $adkportal;
+	$current_action = $adkportal['adk_enable'] == 2 && empty($context['adk_stand_alone']) ? 'forum' : 'home';
+
+	if (isset($context['menu_buttons'][$context['current_action']]))
+]]></add>
+		</operation>
+		
+		<operation>
+			<search position="replace"><![CDATA[
+		$current_action = isset($_REQUEST['sa']) && $_REQUEST['sa'] == 'pick' ? 'profile' : 'admin';
+]]></search>
+			<add><![CDATA[
+		$current_action = isset($_REQUEST['sa']) && $_REQUEST['sa'] == 'pick' ? 'profile' : 'admin';
+	elseif($adkportal['adk_enable'] == 1 && (isset($_REQUEST['board']) || isset($_REQUEST['topic']) || isset($_REQUEST['page']) || isset($_REQUEST['blog'])))
+		$current_action = 'forum';
+]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[
+	// Don't waste cycles
+]]></search>
+			<add><![CDATA[
+	global $adkportal,$boardurl;
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				'content' => '<img src="$1" alt="{alt}"{width}{height} class="bbc_img resized" />',
+]]></search>
+			<add><![CDATA[
+				'content' => !empty($adkportal['enable_watermark']) ? '<img src="'.$boardurl.'/adkportal/sw.php?sw=$1" alt="{alt}"{width}{height} class="bbc_img resized" />' : '<img src="$1" alt="{alt}"{width}{height} class="bbc_img resized" />',
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				'content' => '<img src="$1" alt="" class="bbc_img" />',
+]]></search>
+			<add><![CDATA[
+				'content' => !empty($adkportal['enable_watermark']) ? '<img src="'.$boardurl.'/adkportal/sw.php?sw=$1" alt="" class="bbc_img" />' : '<img src="$1" alt="" class="bbc_img" />',
+]]></add>
+		</operation>
+		
+		<operation>
+			<search position="replace"><![CDATA[
+	$showed_banned = false;
+]]></search>
+			<add><![CDATA[
+	$showed_banned = false;
+	
+	//Adkportal
+	$context['html_headers'] .= rewrite_context_html_headers();
+]]></add>
+		</operation>
+	</file>
+	
+	<file name="$sourcedir/ManagePermissions.php">
+	<operation>
+		<search position="before"><![CDATA[	$groupLevels['global']['standard'] = array_merge($groupLevels['global']['restrict'], array(]]></search>
+		<add><![CDATA[
+		'adk_portal',
+		'adk_downloads_view',
+		'adk_downloads_add',
+		'adk_downloads_autoapprove',
+		'adk_downloads_manage',
+]]></add>
+	</operation>
+
+	<operation>
+		<search position="before"><![CDATA[	$permissionList = array(
+		'membergroup' => array(]]></search>
+		<add><![CDATA[
+			'adk_portal' => array(false, 'adkportal', 'adkportal'),
+			'adk_downloads_view' => array(false, 'adkportal', 'adkportal'),
+			'adk_downloads_add' => array(false, 'adkportal', 'adkportal'),
+			'adk_downloads_autoapprove' => array(false, 'adkportal', 'adkportal'),
+			'adk_downloads_manage' => array(false, 'adkportal', 'adkportal'),]]></add>
+	</operation>
+</file>
+	<file name="$boarddir/SSI.php">
+		<operation>
+			<search position="after"><![CDATA[
+require_once($sourcedir . '/Security.php');
+]]></search>
+			<add><![CDATA[
+require_once($sourcedir . '/Subs-adkfunction.php');
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+// Load the current user's permissions....
+loadPermissions();
+]]></search>
+			<add><![CDATA[
+// Load the current user's permissions....
+loadPermissions();
+
+//Adk Stand Alone mod??? Yeah nose true
+adk_standAloneMode(true);
+
+//Load your language or English Language
+if(loadLanguage('Adk-Modifications') == false)
+	loadLanguage('Adk-Modifications','english');
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+// Clean the request variables.
+cleanRequest();
+]]></search>
+			<add><![CDATA[
+// Clean the request variables.
+cleanRequest();
+
+//LoadSettings From Adk Portal
+adkportalSettings();
+]]></add>
+		</operation>
+	</file>
+			
+	<file name="$boarddir/index.php">
+		<operation>
+			<search position="replace><![CDATA[
+// Load the settings from the settings table, and perform operations like optimizing.
+]]></search>
+			<add><![CDATA[
+//LoadSettings From Adk Portal
+adkportalSettings();
+
+// Load the settings from the settings table, and perform operations like optimizing.
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+	// Is the forum in maintenance mode? (doesn't apply to administrators.)
+]]></search>
+			<add><![CDATA[
+	//Load If we are using Stand Alone :)
+	adk_standAloneMode();
+	
+	// Is the forum in maintenance mode? (doesn't apply to administrators.)
+]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[
+	// Load the current user's permissions.
+	loadPermissions();
+]]></search>
+			<add><![CDATA[
+	//Load your language or English Language
+	if(loadLanguage('Adk-Modifications') == false)
+		loadLanguage('Adk-Modifications','english');
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+require_once($sourcedir . '/Security.php');
+]]></search>
+			<add><![CDATA[
+require_once($sourcedir . '/Security.php');
+require_once($sourcedir . '/Subs-adkfunction.php');
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+		// Action and board are both empty... BoardIndex!
+		if (empty($board) && empty($topic))
+		{
+			require_once($sourcedir . '/BoardIndex.php');
+			return 'BoardIndex';
+		}
+]]></search>
+			<add><![CDATA[
+		//Adk Portal
+		global $adkportal;
+		// Action and board are both empty... BoardIndex!
+		if (empty($board) && empty($topic) && $adkportal['adk_enable'] == 1 && !isset($_REQUEST['page']))
+		{
+			require_once($sourcedir . '/Adkportal.php');
+			return 'Adkportal';
+		}
+		elseif (empty($board) && empty($topic) && isset($_REQUEST['page']))
+		{
+			require_once($sourcedir . '/Adk-echomodules.php');
+			return 'load_pages_adkportal';
+		}
+		elseif (empty($board) && empty($topic))
+		{
+			require_once($sourcedir . '/BoardIndex.php');
+			return 'BoardIndex';
+		}
+]]></add>
+		</operation>		
+	</file>
+	<file name="$sourcedir/QueryString.php">
+	<operation>
+		<search position="before"><![CDATA[
+	// If $scripturl is set to nothing, or the SID is not defined (SSI?) just quit.
+	if ($scripturl == '' || !defined('SID'))
+		return $buffer;
+]]></search>
+		<add><![CDATA[
+	/*Adk Portal Start*/
+	global $adkportal, $boardurl;
+	
+	$scripturl1= $boardurl;
+	
+	if(!empty($adkportal['enable_pages_seo']))
+	{
+		$buffer = preg_replace('/"' . preg_quote($scripturl, '/') . '\?page=([^#"]+?)?"/e', "'\"' . \$scripturl1 . '/' . changeurlpagesAdkportal('\$1'). '\"'", $buffer);
+	}
+		$buffer = changeAdkBuffer($buffer);
+
+	if(!empty($adkportal['enable_download_seo']))
+	{
+		$buffer = preg_replace('/"' . preg_quote($scripturl, '/') . '\?action=downloads;cat=([^#"]+?);([^#"]+?)?"/e', "'\"' . \$scripturl1 . '/index.php?action=downloads;cat=\$1;\$2\"'", $buffer);
+		$buffer = preg_replace('/"' . preg_quote($scripturl, '/') . '\?action=downloads;cat=([^#"]+?)?"/e', "'\"' . \$scripturl1 . '/' . changeCatUrl('\$1'). '\"'", $buffer);
+		$buffer = preg_replace('/"' . preg_quote($scripturl, '/') . '\?action=downloads;sa=view;down=([^#"]+?)?"/e', "'\"' . \$scripturl1 . '/' . changeDownloadUrl('\$1'). '\"'", $buffer);
+	}
+	
+	/*Adk Portal End*/
+]]></add>
+	</operation>
+	</file>
+	
+	<file name="$sourcedir/Subs-BoardIndex.php">
+		<operation>
+			<search position="replace"><![CDATA[
+					'href' => $scripturl . '#c' . $row_board['id_cat'],
+]]></search>
+			<add><![CDATA[
+					'href' => $adkportal['adk_enable'] == 1 ? $adk_enable : $adk_disable,
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			// Haven't set this category yet.
+]]></search>
+			<add><![CDATA[
+			//Adk Portal
+			global $adkportal;
+			$adk_enable = $scripturl . '?action=forum#c' . $row_board['id_cat'];
+			$adk_disable = $scripturl . '#c' . $row_board['id_cat'];
+			
+			// Haven't set this category yet.
+]]></add>
+		</operation>
+	</file>
+	
+	<file name="$sourcedir/Subs-Boards.php">
+		<operation>
+			<search position="replace"><![CDATA[
+	if (isset($_REQUEST['sa']) && $_REQUEST['sa'] == 'all')
+]]></search>
+			<add><![CDATA[
+	//Adk Portal by Smf Personal
+	global $adkportal;
+	$redirect = '';
+	
+	if($adkportal['adk_enable'] == 1)
+		$redirect = 'action=forum';
+
+	if (isset($_REQUEST['sa']) && $_REQUEST['sa'] == 'all')
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			$_SESSION['topicseen_cache'] = array();
+
+		redirectexit();
+]]></search>
+			<add><![CDATA[
+			$_SESSION['topicseen_cache'] = array();
+
+		redirectexit($redirect);
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+		if (empty($clauses))
+			redirectexit();
+]]></search>
+			<add><![CDATA[
+		if (empty($clauses))
+			redirectexit($redirect);
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+		if (empty($boards))
+			redirectexit();
+]]></search>
+			<add><![CDATA[
+		if (empty($boards))
+			redirectexit($redirect);
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			if (empty($board))
+				redirectexit();
+]]></search>
+			<add><![CDATA[
+			if (empty($board))
+				redirectexit($redirect);
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+			if (empty($board_info['parent']))
+				redirectexit();
+]]></search>
+			<add><![CDATA[
+			if (empty($board_info['parent']))
+				redirectexit($redirect);
+]]></add>
+		</operation>
+	</file>
+	
+	<file name="$sourcedir/BoardIndex.php">
+		<operation>
+			<search position="before"><![CDATA[
+	$context['canonical_url'] = $scripturl;
+]]></search>
+			<add><![CDATA[
+	global $adkportal;
+	if(!empty($adkportal['adk_enable'])){
+		$url = $adkportal['adk_enable'] == 2 ? $scripturl : $scripturl.'?action=forum';
+		$context['linktree'][] = array(
+			'url' => $url,
+			'name' => $txt['foro']
+		);
+	}
+]]></add>
+		</operation>
+	</file>
+	
+	<file name="$sourcedir/Recent.php">
+		<operation>
+			<search position="replace"><![CDATA[
+function RecentPosts()
+{
+]]></search>
+			<add><![CDATA[
+function RecentPosts()
+{
+	global $adkportal;
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+		if (count($_REQUEST['c']) == 1)
+		{
+]]></search>
+			<add><![CDATA[
+		if (count($_REQUEST['c']) == 1)
+		{
+			$adk_enable = $scripturl . '?action=forum#c' . (int) $_REQUEST['c'];
+			$adk_disable = $scripturl . '#c' . (int) $_REQUEST['c'];
+	
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				'url' => $scripturl . '#c' . (int) $_REQUEST['c'],
+]]></search>
+			<add><![CDATA[
+				'url' => $adkportal['adk_enable'] == 1 ? $adk_enable : $adk_disable,
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				'href' => $scripturl . '#c' . $row['id_cat'],
+				'link' => '<a href="' . $scripturl . '#c' . $row['id_cat'] . '">' . $row['cname'] . '</a>'
+]]></search>
+			<add><![CDATA[
+				'href' => $adkportal['adk_enable'] == 1 ? $scripturl . '?action=forum#c' . $row['id_cat'] : $scripturl . '#c' . $row['id_cat'],
+				'link' => $adkportal['adk_enable'] == 1 ? '<a href="' . $scripturl . '?action=forum#c' . $row['id_cat'] . '">' . $row['cname'] . '</a>' : '<a href="' . $scripturl . '#c' . $row['id_cat'] . '">' . $row['cname'] . '</a>'
+]]></add>
+		</operation>
+	</file>
+	
+	<file name="$sourcedir/Load.php">
+		<operation>
+			<search position="replace"><![CDATA[
+		'username' => $username,
+]]></search>
+			<add><![CDATA[
+		'username' => $username,
+		'adk_notes' =>  isset($user_settings['adk_notes']) ? $user_settings['adk_notes'] : '',
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+		// Build up the linktree.
+]]></search>
+			<add><![CDATA[
+		//Adk Portal
+		global $adkportal;
+		$adk_enable = $scripturl . '?action=forum#c' . $board_info['cat']['id'];
+		$adk_disable = $scripturl . '#c' . $board_info['cat']['id'];
+		
+		// Build up the linktree.
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+	// Set the top level linktree up.
+]]></search>
+			<add><![CDATA[
+	//Adk Portal Modifications
+	global $adkportal;
+	if((!empty($_REQUEST['topic']) || !empty($_REQUEST['board'])) && !empty($adkportal['adk_enable'])){
+		
+		$url = $adkportal['adk_enable'] == 1 ? $scripturl.'?action=forum' : $scripturl;
+		array_unshift($context['linktree'], array(
+			'url' => $url,
+			'name' => $txt['foro']
+		));
+	}
+	
+	//Modified by lucas-ruroken
+	// Set the top level linktree up.
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				'url' => $scripturl . '#c' . $board_info['cat']['id'],
+]]></search>
+			<add><![CDATA[
+				'url' => $adkportal['adk_enable'] == 1 ? $adk_enable : $adk_disable,
+]]></add>
+		</operation>
+	</file>
+	
+	<file name="$themedir/Display.template.php">
+		<operation>
+			<search position="replace"><![CDATA[
+	// Show the lower breadcrumbs.
+]]></search>
+			<add><![CDATA[
+	//Load Random news? or not
+	if(function_exists('loadDisplayNews'))loadDisplayNews();
+	
+	// Show the lower breadcrumbs.
+]]></add>
+		</operation>
+	</file>
+	<file name="$themedir/index.template.php">
+		<operation>
+			<search position="replace"><![CDATA[
+}
+
+function template_body_below()
+{
+]]></search>
+			<add><![CDATA[
+	//Adk Portal
+	if(function_exists('loadCTop'))loadCTop();
+}
+
+function template_body_below()
+{
+	//Adk Portal
+	if(function_exists('loadCBottom'))loadCBottom();
+]]></add>
+		</operation>
+</file>
+	<file name="$sourcedir/Display.php">
+		<operation>
+			<search position="replace"><![CDATA[
+	$context['real_num_replies'] = $context['num_replies'] = $topicinfo['num_replies'];
+]]></search>
+			<add><![CDATA[
+	global $adkportal;
+	if($adkportal['enable_related_topics'] == 1)
+		loadRandom5News();
+	
+	$context['adk_id_new'] = $topicinfo['id_new'];
+	$context['real_num_replies'] = $context['num_replies'] = $topicinfo['num_replies'];
+]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[t.id_poll,]]></search>
+			<add><![CDATA[t.id_poll,t.id_new,]]></add>
+		</operation>
+	</file>
+	<file name="$themedir/css/ie6.css">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+.collapse2
+{
+	margin-top: -16px;
+}
+]]></add>
+		</operation>
+	</file>
+
+			
+</modification>

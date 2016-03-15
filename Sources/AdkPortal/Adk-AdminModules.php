@@ -187,6 +187,7 @@ function savecreatedpages()
 	$winbg = $_POST['winbg'];
 	$views = 0;
 	$enable_comments = !empty($_POST['enable_comments']) ? 1 : 0;
+
 	
 	//Check if previous page does not exists
 	checkIfPageExists($urltext);

@@ -1,15 +1,14 @@
 <?php
 /**
  * Adk Portal
- * Version: 3.0
+ * Version: 3.1
  * Official support: http://www.smfpersonal.net
  * Author: Adk Team
- * Copyright: 2009 - 2014 © SMFPersonal
+ * Copyright: 2009 - 2016 © SMFPersonal
  * Developers:
  * 		Juarez, Lucas Javier
  * 		Clavijo, Pablo
  *
- * version smf 2.0*
  */
 
 if (!defined('SMF'))
